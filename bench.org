@@ -1,13 +1,15 @@
 * Riak scan 和 Eleveldb测试结果
+  #+BEGIN_VERSE
   spec:
   1. core_num: 4
   2. model:    Intel(R) Core(TM) i5-2430M CPU @ 2.40GHz
-
+  #+END_VERSE
 ** Tips
    1. Offset大会导致密集io,进而导致cpu占用高
 
 ** Riak SCAN
 *** A
+    #+BEGIN_VERSE
     Concurrency: 10
     Rate: 50 ops/s
     Key: <<"users:x:pins">>
@@ -17,10 +19,12 @@
     Result:
     Cpu: 30% ~ 40% each core
     Throughput: 500 ops/s
+    #+END_VERSE
 
     [[./images/scan_10_50_35.png]]
 
 *** B
+    #+BEGIN_VERSE
     concurrency: 20
     Rate: 50 ops/s
     Key: <<"users:x:pins">>
@@ -30,10 +34,12 @@
     Result:
     Cpu: 65% ~ 75% each core
     Throughput: 900 ops/s
+    #+END_VERSE
 
     [[./images/scan_20_50_70.png]]
 
 *** C
+    #+BEGIN_VERSE
     concurrency: 10
     Rate: max
     Key: <<"users:x:pins">>
@@ -43,22 +49,26 @@
     Result:
     Cpu: 100% each core
     Throughput: 1750 ops/s
+    #+END_VERSE
 
     [[./images/scan_10_max_100.png]]
 
 ** Eleveldb
 
 *** put
+    #+BEGIN_VERSE
     concurrency: 1
     Rate: max
 
     Result:
     Cpu: 100% only one core
     Throughput: 40000 ops/s
+    #+END_VERSE
 
     [[./images/eleveldb_puts.png]]
 
 *** scan
+    #+BEGIN_VERSE
     concurrency: 1
     Rate: max
     Key: random
@@ -68,5 +78,6 @@
     Result:
     Cpu: 100% only one core, not too high load on other cores
     Throughput: 4000 ops/s
+    #+END_VERSE
 
     [[./images/1_max_single100.png]]
