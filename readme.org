@@ -36,7 +36,7 @@
 
     Cpu: 100% each core
 
-    Throughput: 150 ops/s
+    Throughput: 2000 ops/s
 
     #+END_QUOTE
 
