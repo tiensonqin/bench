@@ -10,60 +10,24 @@
    1. Offset大会导致密集io,进而导致cpu占用高
 
 ** Riak SCAN
-*** A
+*** scan(get) fsm
     #+BEGIN_QUOTE
     Concurrency: 10
 
-    Rate: 50 ops/s
-
-    Key: <<"users:x:pins">>
-
-    Offset: 0
-
     Len: 20
-
 
     Result:
 
-    Cpu: 30% ~ 40% each core
+    Cpu: 100% each core
 
-    Throughput: 500 ops/s
+    Throughput: 2000 ops/s
     #+END_QUOTE
 
-    [[./images/scan_10_50_35.png]]
+    [[./images/original_10_max.png]]
 
-*** B
-    #+BEGIN_QUOTE
-    concurrency: 20
-
-    Rate: 50 ops/s
-
-    Key: <<"users:x:pins">>
-
-    Offset: 0
-
-    Len: 20
-
-
-    Result:
-
-    Cpu: 65% ~ 75% each core
-
-    Throughput: 900 ops/s
-
-    #+END_QUOTE
-
-    [[./images/scan_20_50_70.png]]
-
-*** C
+*** coverage fsm
     #+BEGIN_QUOTE
     concurrency: 10
-
-    Rate: max
-
-    Key: <<"users:x:pins">>
-
-    Offset: 0
 
     Len: 20
 
@@ -72,10 +36,11 @@
 
     Cpu: 100% each core
 
-    Throughput: 1750 ops/s
+    Throughput: 150 ops/s
+
     #+END_QUOTE
 
-    [[./images/scan_10_max_100.png]]
+    [[./images/new_10_max.png]]
 
 ** Eleveldb
 
